@@ -24,7 +24,7 @@ stages:
   - name: DBNAME_POSTFIX
     value: _DEV
   jobs:
-  - template: YAMLpipelines/templates/snowflakeFlywayDeploy.yml@PipelineCommon
+  - template: YAMLpipelines/templates/snowflakeFlywayBuild.yml@PipelineCommon
     parameters:
       jobName: 'BuildDatabase'
       databaseName: $(DBNAME)
@@ -38,7 +38,7 @@ stages:
   - name: DBNAME_POSTFIX
     value: _DEV
   jobs:
-  - template: YAMLpipelines/templates/snowflakeFlywayBuild.yml@PipelineCommon
+  - template: YAMLpipelines/templates/snowflakeFlywayDeploy.yml@PipelineCommon
     parameters:
       jobName: DEV
       databaseName: $(DBNAME)
